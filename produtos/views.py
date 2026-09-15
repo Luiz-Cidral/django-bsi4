@@ -10,7 +10,7 @@ from .serializers import ProdutoSerializer
 class ProdutoViewSet(ModelViewSet):
     queryset = Produto.objects.all()
     serializer_class = ProdutoSerializer
-    filter_backends = (DjangoFilterBackend,)
+    filter_backends = (DjangoFilterBackend, SearchFilter, OrderingFilter)
     filterset_class = ProdutoFilter
     ordering_fields = ("nome", "preco")
     ordering = ("id",)
